@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.weather.proto";
+option java_outer_classname = "WeatherProto";
+
+package weather;
+
+message WeatherData {
+  string sensor_id = 1;
+  double temperature = 2;
+  double humidity = 3;
+  double pressure = 4;
+  int64 timestamp = 5;
+}
+
+message WeatherStats {
+  string sensor_id = 1;
+  double avg_temperature = 2;
+  double avg_humidity = 3;
+  double avg_pressure = 4;
+  int32 sample_count = 5;
+  int64 last_update = 6;
+}
+
+message AlertMessage {
+  string sensor_id = 1;
+  string message = 2;
+  enum Severity {
+    INFO = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+  }
+  Severity severity = 3;
+  int64 timestamp = 4;
+}
+
+message ReportRequest {
+  string sensor_id = 1;
+}
+
+message Empty {}
+
+service WeatherSensorService {
+  rpc StreamWeatherData (stream WeatherData) returns (Empty);
+}
+
+service AnalyticsService {
+  rpc SubscribeToStats (ReportRequest) returns (stream WeatherStats);
+
+  rpc SubscribeToAlerts (Empty) returns (stream AlertMessage);
+}
+
+service DashboardService {
+  rpc GetCurrentReport (ReportRequest) returns (WeatherStats);
+}

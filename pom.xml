@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.4</version>
+		<relativePath/>
+	</parent>
+
+	<groupId>com.example</groupId>
+	<artifactId>javaServer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>javaServer</name>
+
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<!-- Spring Web (للـ REST لو عايز بعدين) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- gRPC + Spring Boot = حب من أول سطر -->
+		<dependency>
+			<groupId>net.devh</groupId>
+			<artifactId>grpc-spring-boot-starter</artifactId>
+			<version>2.15.0.RELEASE</version>
+		</dependency>
+
+		<!-- protobuf-java (لازم تكون موجودة لوحدها) -->
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>4.28.2</version>
+		</dependency>
+
+		<!-- عشان @Generated ما يطلعش أحمر -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<!-- DevTools (يعمل Reload تلقائي لما تغير الكود) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.xolstice.maven.plugins</groupId>
+				<artifactId>protobuf-maven-plugin</artifactId>
+				<version>0.6.1</version>
+				<configuration>
+					<protocArtifact>com.google.protobuf:protoc:3.25.3:exe:windows-x86_64</protocArtifact>
+					<pluginId>grpc-java</pluginId>
+					<pluginArtifact>io.grpc:protoc-gen-grpc-java:1.68.0:exe:windows-x86_64</pluginArtifact>
+					<protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
+					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+					<clearOutputDirectory>false</clearOutputDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>compile-custom</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

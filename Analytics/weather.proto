@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option go_package = "github.com/hasan/weather;weather";
+
+option java_multiple_files = true;
+option java_package = "com.weather.proto";
+option java_outer_classname = "WeatherProto";
+
+message Empty {}
+
+message ReportRequest {
+  string region = 1;
+}
+
+message WeatherStats {
+  float avg_temp = 1;
+  float max_temp = 2;
+  int32 total_alerts = 3;
+}
+
+message AlertMessage {
+  string city = 1;
+  float temperature = 2;
+  string message = 3;
+}
+
+service AnalyticsService {
+  rpc SubscribeToStats (ReportRequest) returns (stream WeatherStats);
+  rpc SubscribeToAlerts (Empty) returns (stream AlertMessage);
+}
+
+// Sensor service: client-streaming RPC for sensors to send readings
+message SensorReading {
+  string sensor_id = 1;
+  float temperature = 2;
+  float humidity = 3;
+  float pressure = 4;
+  int64 ts = 5; // unix epoch ms
+}
+
+message SensorAck {
+  bool ok = 1;
+  string msg = 2;
+}
+
+service SensorService {
+  // Sensors open a client-stream to send many SensorReading messages.
+  rpc StreamSensorData (stream SensorReading) returns (SensorAck);
+
+  }

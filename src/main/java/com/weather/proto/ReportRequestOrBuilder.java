@@ -5,18 +5,18 @@
 package com.weather.proto;
 
 public interface ReportRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:weather.ReportRequest)
+    // @@protoc_insertion_point(interface_extends:ReportRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string sensor_id = 1;</code>
-   * @return The sensorId.
+   * <code>string region = 1;</code>
+   * @return The region.
    */
-  java.lang.String getSensorId();
+  java.lang.String getRegion();
   /**
-   * <code>string sensor_id = 1;</code>
-   * @return The bytes for sensorId.
+   * <code>string region = 1;</code>
+   * @return The bytes for region.
    */
   com.google.protobuf.ByteString
-      getSensorIdBytes();
+      getRegionBytes();
 }

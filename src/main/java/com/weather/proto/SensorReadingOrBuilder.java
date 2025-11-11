@@ -4,8 +4,8 @@
 // Protobuf Java Version: 3.25.3
 package com.weather.proto;
 
-public interface WeatherDataOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:weather.WeatherData)
+public interface SensorReadingOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:SensorReading)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -21,26 +21,30 @@ public interface WeatherDataOrBuilder extends
       getSensorIdBytes();
 
   /**
-   * <code>double temperature = 2;</code>
+   * <code>float temperature = 2;</code>
    * @return The temperature.
    */
-  double getTemperature();
+  float getTemperature();
 
   /**
-   * <code>double humidity = 3;</code>
+   * <code>float humidity = 3;</code>
    * @return The humidity.
    */
-  double getHumidity();
+  float getHumidity();
 
   /**
-   * <code>double pressure = 4;</code>
+   * <code>float pressure = 4;</code>
    * @return The pressure.
    */
-  double getPressure();
+  float getPressure();
 
   /**
-   * <code>int64 timestamp = 5;</code>
-   * @return The timestamp.
+   * <pre>
+   * unix epoch ms
+   * </pre>
+   *
+   * <code>int64 ts = 5;</code>
+   * @return The ts.
    */
-  long getTimestamp();
+  long getTs();
 }

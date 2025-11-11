@@ -5,48 +5,24 @@
 package com.weather.proto;
 
 public interface WeatherStatsOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:weather.WeatherStats)
+    // @@protoc_insertion_point(interface_extends:WeatherStats)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string sensor_id = 1;</code>
-   * @return The sensorId.
+   * <code>float avg_temp = 1;</code>
+   * @return The avgTemp.
    */
-  java.lang.String getSensorId();
-  /**
-   * <code>string sensor_id = 1;</code>
-   * @return The bytes for sensorId.
-   */
-  com.google.protobuf.ByteString
-      getSensorIdBytes();
+  float getAvgTemp();
 
   /**
-   * <code>double avg_temperature = 2;</code>
-   * @return The avgTemperature.
+   * <code>float max_temp = 2;</code>
+   * @return The maxTemp.
    */
-  double getAvgTemperature();
+  float getMaxTemp();
 
   /**
-   * <code>double avg_humidity = 3;</code>
-   * @return The avgHumidity.
+   * <code>int32 total_alerts = 3;</code>
+   * @return The totalAlerts.
    */
-  double getAvgHumidity();
-
-  /**
-   * <code>double avg_pressure = 4;</code>
-   * @return The avgPressure.
-   */
-  double getAvgPressure();
-
-  /**
-   * <code>int32 sample_count = 5;</code>
-   * @return The sampleCount.
-   */
-  int getSampleCount();
-
-  /**
-   * <code>int64 last_update = 6;</code>
-   * @return The lastUpdate.
-   */
-  long getLastUpdate();
+  int getTotalAlerts();
 }

@@ -5,47 +5,36 @@
 package com.weather.proto;
 
 public interface AlertMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:weather.AlertMessage)
+    // @@protoc_insertion_point(interface_extends:AlertMessage)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string sensor_id = 1;</code>
-   * @return The sensorId.
+   * <code>string city = 1;</code>
+   * @return The city.
    */
-  java.lang.String getSensorId();
+  java.lang.String getCity();
   /**
-   * <code>string sensor_id = 1;</code>
-   * @return The bytes for sensorId.
+   * <code>string city = 1;</code>
+   * @return The bytes for city.
    */
   com.google.protobuf.ByteString
-      getSensorIdBytes();
+      getCityBytes();
 
   /**
-   * <code>string message = 2;</code>
+   * <code>float temperature = 2;</code>
+   * @return The temperature.
+   */
+  float getTemperature();
+
+  /**
+   * <code>string message = 3;</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
-   * <code>string message = 2;</code>
+   * <code>string message = 3;</code>
    * @return The bytes for message.
    */
   com.google.protobuf.ByteString
       getMessageBytes();
-
-  /**
-   * <code>.weather.AlertMessage.Severity severity = 3;</code>
-   * @return The enum numeric value on the wire for severity.
-   */
-  int getSeverityValue();
-  /**
-   * <code>.weather.AlertMessage.Severity severity = 3;</code>
-   * @return The severity.
-   */
-  com.weather.proto.AlertMessage.Severity getSeverity();
-
-  /**
-   * <code>int64 timestamp = 4;</code>
-   * @return The timestamp.
-   */
-  long getTimestamp();
 }

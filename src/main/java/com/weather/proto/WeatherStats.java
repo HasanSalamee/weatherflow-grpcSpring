@@ -5,11 +5,11 @@
 package com.weather.proto;
 
 /**
- * Protobuf type {@code weather.WeatherStats}
+ * Protobuf type {@code WeatherStats}
  */
 public final class WeatherStats extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:weather.WeatherStats)
+    // @@protoc_insertion_point(message_implements:WeatherStats)
     WeatherStatsOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use WeatherStats.newBuilder() to construct.
@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private WeatherStats() {
-    sensorId_ = "";
   }
 
   @java.lang.Override
@@ -29,109 +28,48 @@ private static final long serialVersionUID = 0L;
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.weather.proto.WeatherProto.internal_static_weather_WeatherStats_descriptor;
+    return com.weather.proto.WeatherProto.internal_static_WeatherStats_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.weather.proto.WeatherProto.internal_static_weather_WeatherStats_fieldAccessorTable
+    return com.weather.proto.WeatherProto.internal_static_WeatherStats_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.weather.proto.WeatherStats.class, com.weather.proto.WeatherStats.Builder.class);
   }
 
-  public static final int SENSOR_ID_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object sensorId_ = "";
+  public static final int AVG_TEMP_FIELD_NUMBER = 1;
+  private float avgTemp_ = 0F;
   /**
-   * <code>string sensor_id = 1;</code>
-   * @return The sensorId.
+   * <code>float avg_temp = 1;</code>
+   * @return The avgTemp.
    */
   @java.lang.Override
-  public java.lang.String getSensorId() {
-    java.lang.Object ref = sensorId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      sensorId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string sensor_id = 1;</code>
-   * @return The bytes for sensorId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getSensorIdBytes() {
-    java.lang.Object ref = sensorId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      sensorId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public float getAvgTemp() {
+    return avgTemp_;
   }
 
-  public static final int AVG_TEMPERATURE_FIELD_NUMBER = 2;
-  private double avgTemperature_ = 0D;
+  public static final int MAX_TEMP_FIELD_NUMBER = 2;
+  private float maxTemp_ = 0F;
   /**
-   * <code>double avg_temperature = 2;</code>
-   * @return The avgTemperature.
+   * <code>float max_temp = 2;</code>
+   * @return The maxTemp.
    */
   @java.lang.Override
-  public double getAvgTemperature() {
-    return avgTemperature_;
+  public float getMaxTemp() {
+    return maxTemp_;
   }
 
-  public static final int AVG_HUMIDITY_FIELD_NUMBER = 3;
-  private double avgHumidity_ = 0D;
+  public static final int TOTAL_ALERTS_FIELD_NUMBER = 3;
+  private int totalAlerts_ = 0;
   /**
-   * <code>double avg_humidity = 3;</code>
-   * @return The avgHumidity.
+   * <code>int32 total_alerts = 3;</code>
+   * @return The totalAlerts.
    */
   @java.lang.Override
-  public double getAvgHumidity() {
-    return avgHumidity_;
-  }
-
-  public static final int AVG_PRESSURE_FIELD_NUMBER = 4;
-  private double avgPressure_ = 0D;
-  /**
-   * <code>double avg_pressure = 4;</code>
-   * @return The avgPressure.
-   */
-  @java.lang.Override
-  public double getAvgPressure() {
-    return avgPressure_;
-  }
-
-  public static final int SAMPLE_COUNT_FIELD_NUMBER = 5;
-  private int sampleCount_ = 0;
-  /**
-   * <code>int32 sample_count = 5;</code>
-   * @return The sampleCount.
-   */
-  @java.lang.Override
-  public int getSampleCount() {
-    return sampleCount_;
-  }
-
-  public static final int LAST_UPDATE_FIELD_NUMBER = 6;
-  private long lastUpdate_ = 0L;
-  /**
-   * <code>int64 last_update = 6;</code>
-   * @return The lastUpdate.
-   */
-  @java.lang.Override
-  public long getLastUpdate() {
-    return lastUpdate_;
+  public int getTotalAlerts() {
+    return totalAlerts_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -148,23 +86,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sensorId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sensorId_);
+    if (java.lang.Float.floatToRawIntBits(avgTemp_) != 0) {
+      output.writeFloat(1, avgTemp_);
     }
-    if (java.lang.Double.doubleToRawLongBits(avgTemperature_) != 0) {
-      output.writeDouble(2, avgTemperature_);
+    if (java.lang.Float.floatToRawIntBits(maxTemp_) != 0) {
+      output.writeFloat(2, maxTemp_);
     }
-    if (java.lang.Double.doubleToRawLongBits(avgHumidity_) != 0) {
-      output.writeDouble(3, avgHumidity_);
-    }
-    if (java.lang.Double.doubleToRawLongBits(avgPressure_) != 0) {
-      output.writeDouble(4, avgPressure_);
-    }
-    if (sampleCount_ != 0) {
-      output.writeInt32(5, sampleCount_);
-    }
-    if (lastUpdate_ != 0L) {
-      output.writeInt64(6, lastUpdate_);
+    if (totalAlerts_ != 0) {
+      output.writeInt32(3, totalAlerts_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -175,28 +104,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sensorId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sensorId_);
-    }
-    if (java.lang.Double.doubleToRawLongBits(avgTemperature_) != 0) {
+    if (java.lang.Float.floatToRawIntBits(avgTemp_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(2, avgTemperature_);
+        .computeFloatSize(1, avgTemp_);
     }
-    if (java.lang.Double.doubleToRawLongBits(avgHumidity_) != 0) {
+    if (java.lang.Float.floatToRawIntBits(maxTemp_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(3, avgHumidity_);
+        .computeFloatSize(2, maxTemp_);
     }
-    if (java.lang.Double.doubleToRawLongBits(avgPressure_) != 0) {
+    if (totalAlerts_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(4, avgPressure_);
-    }
-    if (sampleCount_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, sampleCount_);
-    }
-    if (lastUpdate_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, lastUpdate_);
+        .computeInt32Size(3, totalAlerts_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -213,21 +131,14 @@ private static final long serialVersionUID = 0L;
     }
     com.weather.proto.WeatherStats other = (com.weather.proto.WeatherStats) obj;
 
-    if (!getSensorId()
-        .equals(other.getSensorId())) return false;
-    if (java.lang.Double.doubleToLongBits(getAvgTemperature())
-        != java.lang.Double.doubleToLongBits(
-            other.getAvgTemperature())) return false;
-    if (java.lang.Double.doubleToLongBits(getAvgHumidity())
-        != java.lang.Double.doubleToLongBits(
-            other.getAvgHumidity())) return false;
-    if (java.lang.Double.doubleToLongBits(getAvgPressure())
-        != java.lang.Double.doubleToLongBits(
-            other.getAvgPressure())) return false;
-    if (getSampleCount()
-        != other.getSampleCount()) return false;
-    if (getLastUpdate()
-        != other.getLastUpdate()) return false;
+    if (java.lang.Float.floatToIntBits(getAvgTemp())
+        != java.lang.Float.floatToIntBits(
+            other.getAvgTemp())) return false;
+    if (java.lang.Float.floatToIntBits(getMaxTemp())
+        != java.lang.Float.floatToIntBits(
+            other.getMaxTemp())) return false;
+    if (getTotalAlerts()
+        != other.getTotalAlerts()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -239,22 +150,14 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SENSOR_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getSensorId().hashCode();
-    hash = (37 * hash) + AVG_TEMPERATURE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getAvgTemperature()));
-    hash = (37 * hash) + AVG_HUMIDITY_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getAvgHumidity()));
-    hash = (37 * hash) + AVG_PRESSURE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getAvgPressure()));
-    hash = (37 * hash) + SAMPLE_COUNT_FIELD_NUMBER;
-    hash = (53 * hash) + getSampleCount();
-    hash = (37 * hash) + LAST_UPDATE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLastUpdate());
+    hash = (37 * hash) + AVG_TEMP_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getAvgTemp());
+    hash = (37 * hash) + MAX_TEMP_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getMaxTemp());
+    hash = (37 * hash) + TOTAL_ALERTS_FIELD_NUMBER;
+    hash = (53 * hash) + getTotalAlerts();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -353,21 +256,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code weather.WeatherStats}
+   * Protobuf type {@code WeatherStats}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:weather.WeatherStats)
+      // @@protoc_insertion_point(builder_implements:WeatherStats)
       com.weather.proto.WeatherStatsOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.weather.proto.WeatherProto.internal_static_weather_WeatherStats_descriptor;
+      return com.weather.proto.WeatherProto.internal_static_WeatherStats_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.weather.proto.WeatherProto.internal_static_weather_WeatherStats_fieldAccessorTable
+      return com.weather.proto.WeatherProto.internal_static_WeatherStats_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.weather.proto.WeatherStats.class, com.weather.proto.WeatherStats.Builder.class);
     }
@@ -386,19 +289,16 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      sensorId_ = "";
-      avgTemperature_ = 0D;
-      avgHumidity_ = 0D;
-      avgPressure_ = 0D;
-      sampleCount_ = 0;
-      lastUpdate_ = 0L;
+      avgTemp_ = 0F;
+      maxTemp_ = 0F;
+      totalAlerts_ = 0;
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.weather.proto.WeatherProto.internal_static_weather_WeatherStats_descriptor;
+      return com.weather.proto.WeatherProto.internal_static_WeatherStats_descriptor;
     }
 
     @java.lang.Override
@@ -426,22 +326,13 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.weather.proto.WeatherStats result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.sensorId_ = sensorId_;
+        result.avgTemp_ = avgTemp_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.avgTemperature_ = avgTemperature_;
+        result.maxTemp_ = maxTemp_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.avgHumidity_ = avgHumidity_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.avgPressure_ = avgPressure_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.sampleCount_ = sampleCount_;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.lastUpdate_ = lastUpdate_;
+        result.totalAlerts_ = totalAlerts_;
       }
     }
 
@@ -489,25 +380,14 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.weather.proto.WeatherStats other) {
       if (other == com.weather.proto.WeatherStats.getDefaultInstance()) return this;
-      if (!other.getSensorId().isEmpty()) {
-        sensorId_ = other.sensorId_;
-        bitField0_ |= 0x00000001;
-        onChanged();
+      if (other.getAvgTemp() != 0F) {
+        setAvgTemp(other.getAvgTemp());
       }
-      if (other.getAvgTemperature() != 0D) {
-        setAvgTemperature(other.getAvgTemperature());
+      if (other.getMaxTemp() != 0F) {
+        setMaxTemp(other.getMaxTemp());
       }
-      if (other.getAvgHumidity() != 0D) {
-        setAvgHumidity(other.getAvgHumidity());
-      }
-      if (other.getAvgPressure() != 0D) {
-        setAvgPressure(other.getAvgPressure());
-      }
-      if (other.getSampleCount() != 0) {
-        setSampleCount(other.getSampleCount());
-      }
-      if (other.getLastUpdate() != 0L) {
-        setLastUpdate(other.getLastUpdate());
+      if (other.getTotalAlerts() != 0) {
+        setTotalAlerts(other.getTotalAlerts());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -535,36 +415,21 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              sensorId_ = input.readStringRequireUtf8();
+            case 13: {
+              avgTemp_ = input.readFloat();
               bitField0_ |= 0x00000001;
               break;
-            } // case 10
-            case 17: {
-              avgTemperature_ = input.readDouble();
+            } // case 13
+            case 21: {
+              maxTemp_ = input.readFloat();
               bitField0_ |= 0x00000002;
               break;
-            } // case 17
-            case 25: {
-              avgHumidity_ = input.readDouble();
+            } // case 21
+            case 24: {
+              totalAlerts_ = input.readInt32();
               bitField0_ |= 0x00000004;
               break;
-            } // case 25
-            case 33: {
-              avgPressure_ = input.readDouble();
-              bitField0_ |= 0x00000008;
-              break;
-            } // case 33
-            case 40: {
-              sampleCount_ = input.readInt32();
-              bitField0_ |= 0x00000010;
-              break;
-            } // case 40
-            case 48: {
-              lastUpdate_ = input.readInt64();
-              bitField0_ |= 0x00000020;
-              break;
-            } // case 48
+            } // case 24
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -582,234 +447,98 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object sensorId_ = "";
+    private float avgTemp_ ;
     /**
-     * <code>string sensor_id = 1;</code>
-     * @return The sensorId.
-     */
-    public java.lang.String getSensorId() {
-      java.lang.Object ref = sensorId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        sensorId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string sensor_id = 1;</code>
-     * @return The bytes for sensorId.
-     */
-    public com.google.protobuf.ByteString
-        getSensorIdBytes() {
-      java.lang.Object ref = sensorId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sensorId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string sensor_id = 1;</code>
-     * @param value The sensorId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSensorId(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      sensorId_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string sensor_id = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSensorId() {
-      sensorId_ = getDefaultInstance().getSensorId();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string sensor_id = 1;</code>
-     * @param value The bytes for sensorId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSensorIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      sensorId_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-
-    private double avgTemperature_ ;
-    /**
-     * <code>double avg_temperature = 2;</code>
-     * @return The avgTemperature.
+     * <code>float avg_temp = 1;</code>
+     * @return The avgTemp.
      */
     @java.lang.Override
-    public double getAvgTemperature() {
-      return avgTemperature_;
+    public float getAvgTemp() {
+      return avgTemp_;
     }
     /**
-     * <code>double avg_temperature = 2;</code>
-     * @param value The avgTemperature to set.
+     * <code>float avg_temp = 1;</code>
+     * @param value The avgTemp to set.
      * @return This builder for chaining.
      */
-    public Builder setAvgTemperature(double value) {
+    public Builder setAvgTemp(float value) {
 
-      avgTemperature_ = value;
+      avgTemp_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>float avg_temp = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAvgTemp() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      avgTemp_ = 0F;
+      onChanged();
+      return this;
+    }
+
+    private float maxTemp_ ;
+    /**
+     * <code>float max_temp = 2;</code>
+     * @return The maxTemp.
+     */
+    @java.lang.Override
+    public float getMaxTemp() {
+      return maxTemp_;
+    }
+    /**
+     * <code>float max_temp = 2;</code>
+     * @param value The maxTemp to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMaxTemp(float value) {
+
+      maxTemp_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>double avg_temperature = 2;</code>
+     * <code>float max_temp = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearAvgTemperature() {
+    public Builder clearMaxTemp() {
       bitField0_ = (bitField0_ & ~0x00000002);
-      avgTemperature_ = 0D;
+      maxTemp_ = 0F;
       onChanged();
       return this;
     }
 
-    private double avgHumidity_ ;
+    private int totalAlerts_ ;
     /**
-     * <code>double avg_humidity = 3;</code>
-     * @return The avgHumidity.
+     * <code>int32 total_alerts = 3;</code>
+     * @return The totalAlerts.
      */
     @java.lang.Override
-    public double getAvgHumidity() {
-      return avgHumidity_;
+    public int getTotalAlerts() {
+      return totalAlerts_;
     }
     /**
-     * <code>double avg_humidity = 3;</code>
-     * @param value The avgHumidity to set.
+     * <code>int32 total_alerts = 3;</code>
+     * @param value The totalAlerts to set.
      * @return This builder for chaining.
      */
-    public Builder setAvgHumidity(double value) {
+    public Builder setTotalAlerts(int value) {
 
-      avgHumidity_ = value;
+      totalAlerts_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
-     * <code>double avg_humidity = 3;</code>
+     * <code>int32 total_alerts = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearAvgHumidity() {
+    public Builder clearTotalAlerts() {
       bitField0_ = (bitField0_ & ~0x00000004);
-      avgHumidity_ = 0D;
-      onChanged();
-      return this;
-    }
-
-    private double avgPressure_ ;
-    /**
-     * <code>double avg_pressure = 4;</code>
-     * @return The avgPressure.
-     */
-    @java.lang.Override
-    public double getAvgPressure() {
-      return avgPressure_;
-    }
-    /**
-     * <code>double avg_pressure = 4;</code>
-     * @param value The avgPressure to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAvgPressure(double value) {
-
-      avgPressure_ = value;
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double avg_pressure = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAvgPressure() {
-      bitField0_ = (bitField0_ & ~0x00000008);
-      avgPressure_ = 0D;
-      onChanged();
-      return this;
-    }
-
-    private int sampleCount_ ;
-    /**
-     * <code>int32 sample_count = 5;</code>
-     * @return The sampleCount.
-     */
-    @java.lang.Override
-    public int getSampleCount() {
-      return sampleCount_;
-    }
-    /**
-     * <code>int32 sample_count = 5;</code>
-     * @param value The sampleCount to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSampleCount(int value) {
-
-      sampleCount_ = value;
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 sample_count = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSampleCount() {
-      bitField0_ = (bitField0_ & ~0x00000010);
-      sampleCount_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private long lastUpdate_ ;
-    /**
-     * <code>int64 last_update = 6;</code>
-     * @return The lastUpdate.
-     */
-    @java.lang.Override
-    public long getLastUpdate() {
-      return lastUpdate_;
-    }
-    /**
-     * <code>int64 last_update = 6;</code>
-     * @param value The lastUpdate to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLastUpdate(long value) {
-
-      lastUpdate_ = value;
-      bitField0_ |= 0x00000020;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 last_update = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLastUpdate() {
-      bitField0_ = (bitField0_ & ~0x00000020);
-      lastUpdate_ = 0L;
+      totalAlerts_ = 0;
       onChanged();
       return this;
     }
@@ -826,10 +555,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:weather.WeatherStats)
+    // @@protoc_insertion_point(builder_scope:WeatherStats)
   }
 
-  // @@protoc_insertion_point(class_scope:weather.WeatherStats)
+  // @@protoc_insertion_point(class_scope:WeatherStats)
   private static final com.weather.proto.WeatherStats DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.weather.proto.WeatherStats();

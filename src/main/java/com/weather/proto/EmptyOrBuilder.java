@@ -5,6 +5,6 @@
 package com.weather.proto;
 
 public interface EmptyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:weather.Empty)
+    // @@protoc_insertion_point(interface_extends:Empty)
     com.google.protobuf.MessageOrBuilder {
 }

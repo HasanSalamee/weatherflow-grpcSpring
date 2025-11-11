@@ -5,11 +5,11 @@
 package com.weather.proto;
 
 /**
- * Protobuf type {@code weather.AlertMessage}
+ * Protobuf type {@code AlertMessage}
  */
 public final class AlertMessage extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:weather.AlertMessage)
+    // @@protoc_insertion_point(message_implements:AlertMessage)
     AlertMessageOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use AlertMessage.newBuilder() to construct.
@@ -17,9 +17,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private AlertMessage() {
-    sensorId_ = "";
+    city_ = "";
     message_ = "";
-    severity_ = 0;
   }
 
   @java.lang.Override
@@ -31,178 +30,72 @@ private static final long serialVersionUID = 0L;
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.weather.proto.WeatherProto.internal_static_weather_AlertMessage_descriptor;
+    return com.weather.proto.WeatherProto.internal_static_AlertMessage_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.weather.proto.WeatherProto.internal_static_weather_AlertMessage_fieldAccessorTable
+    return com.weather.proto.WeatherProto.internal_static_AlertMessage_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.weather.proto.AlertMessage.class, com.weather.proto.AlertMessage.Builder.class);
   }
 
-  /**
-   * Protobuf enum {@code weather.AlertMessage.Severity}
-   */
-  public enum Severity
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>INFO = 0;</code>
-     */
-    INFO(0),
-    /**
-     * <code>WARNING = 1;</code>
-     */
-    WARNING(1),
-    /**
-     * <code>CRITICAL = 2;</code>
-     */
-    CRITICAL(2),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>INFO = 0;</code>
-     */
-    public static final int INFO_VALUE = 0;
-    /**
-     * <code>WARNING = 1;</code>
-     */
-    public static final int WARNING_VALUE = 1;
-    /**
-     * <code>CRITICAL = 2;</code>
-     */
-    public static final int CRITICAL_VALUE = 2;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static Severity valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static Severity forNumber(int value) {
-      switch (value) {
-        case 0: return INFO;
-        case 1: return WARNING;
-        case 2: return CRITICAL;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<Severity>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        Severity> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<Severity>() {
-            public Severity findValueByNumber(int number) {
-              return Severity.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return com.weather.proto.AlertMessage.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final Severity[] VALUES = values();
-
-    public static Severity valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private Severity(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:weather.AlertMessage.Severity)
-  }
-
-  public static final int SENSOR_ID_FIELD_NUMBER = 1;
+  public static final int CITY_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object sensorId_ = "";
+  private volatile java.lang.Object city_ = "";
   /**
-   * <code>string sensor_id = 1;</code>
-   * @return The sensorId.
+   * <code>string city = 1;</code>
+   * @return The city.
    */
   @java.lang.Override
-  public java.lang.String getSensorId() {
-    java.lang.Object ref = sensorId_;
+  public java.lang.String getCity() {
+    java.lang.Object ref = city_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      sensorId_ = s;
+      city_ = s;
       return s;
     }
   }
   /**
-   * <code>string sensor_id = 1;</code>
-   * @return The bytes for sensorId.
+   * <code>string city = 1;</code>
+   * @return The bytes for city.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getSensorIdBytes() {
-    java.lang.Object ref = sensorId_;
+      getCityBytes() {
+    java.lang.Object ref = city_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      sensorId_ = b;
+      city_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int MESSAGE_FIELD_NUMBER = 2;
+  public static final int TEMPERATURE_FIELD_NUMBER = 2;
+  private float temperature_ = 0F;
+  /**
+   * <code>float temperature = 2;</code>
+   * @return The temperature.
+   */
+  @java.lang.Override
+  public float getTemperature() {
+    return temperature_;
+  }
+
+  public static final int MESSAGE_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
   private volatile java.lang.Object message_ = "";
   /**
-   * <code>string message = 2;</code>
+   * <code>string message = 3;</code>
    * @return The message.
    */
   @java.lang.Override
@@ -219,7 +112,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string message = 2;</code>
+   * <code>string message = 3;</code>
    * @return The bytes for message.
    */
   @java.lang.Override
@@ -237,35 +130,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SEVERITY_FIELD_NUMBER = 3;
-  private int severity_ = 0;
-  /**
-   * <code>.weather.AlertMessage.Severity severity = 3;</code>
-   * @return The enum numeric value on the wire for severity.
-   */
-  @java.lang.Override public int getSeverityValue() {
-    return severity_;
-  }
-  /**
-   * <code>.weather.AlertMessage.Severity severity = 3;</code>
-   * @return The severity.
-   */
-  @java.lang.Override public com.weather.proto.AlertMessage.Severity getSeverity() {
-    com.weather.proto.AlertMessage.Severity result = com.weather.proto.AlertMessage.Severity.forNumber(severity_);
-    return result == null ? com.weather.proto.AlertMessage.Severity.UNRECOGNIZED : result;
-  }
-
-  public static final int TIMESTAMP_FIELD_NUMBER = 4;
-  private long timestamp_ = 0L;
-  /**
-   * <code>int64 timestamp = 4;</code>
-   * @return The timestamp.
-   */
-  @java.lang.Override
-  public long getTimestamp() {
-    return timestamp_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -280,17 +144,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sensorId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sensorId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(city_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, city_);
+    }
+    if (java.lang.Float.floatToRawIntBits(temperature_) != 0) {
+      output.writeFloat(2, temperature_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
-    }
-    if (severity_ != com.weather.proto.AlertMessage.Severity.INFO.getNumber()) {
-      output.writeEnum(3, severity_);
-    }
-    if (timestamp_ != 0L) {
-      output.writeInt64(4, timestamp_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -301,19 +162,15 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sensorId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sensorId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(city_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, city_);
+    }
+    if (java.lang.Float.floatToRawIntBits(temperature_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeFloatSize(2, temperature_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
-    }
-    if (severity_ != com.weather.proto.AlertMessage.Severity.INFO.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(3, severity_);
-    }
-    if (timestamp_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, timestamp_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -330,13 +187,13 @@ private static final long serialVersionUID = 0L;
     }
     com.weather.proto.AlertMessage other = (com.weather.proto.AlertMessage) obj;
 
-    if (!getSensorId()
-        .equals(other.getSensorId())) return false;
+    if (!getCity()
+        .equals(other.getCity())) return false;
+    if (java.lang.Float.floatToIntBits(getTemperature())
+        != java.lang.Float.floatToIntBits(
+            other.getTemperature())) return false;
     if (!getMessage()
         .equals(other.getMessage())) return false;
-    if (severity_ != other.severity_) return false;
-    if (getTimestamp()
-        != other.getTimestamp()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -348,15 +205,13 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SENSOR_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getSensorId().hashCode();
+    hash = (37 * hash) + CITY_FIELD_NUMBER;
+    hash = (53 * hash) + getCity().hashCode();
+    hash = (37 * hash) + TEMPERATURE_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getTemperature());
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
-    hash = (37 * hash) + SEVERITY_FIELD_NUMBER;
-    hash = (53 * hash) + severity_;
-    hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getTimestamp());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -455,21 +310,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code weather.AlertMessage}
+   * Protobuf type {@code AlertMessage}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:weather.AlertMessage)
+      // @@protoc_insertion_point(builder_implements:AlertMessage)
       com.weather.proto.AlertMessageOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.weather.proto.WeatherProto.internal_static_weather_AlertMessage_descriptor;
+      return com.weather.proto.WeatherProto.internal_static_AlertMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.weather.proto.WeatherProto.internal_static_weather_AlertMessage_fieldAccessorTable
+      return com.weather.proto.WeatherProto.internal_static_AlertMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.weather.proto.AlertMessage.class, com.weather.proto.AlertMessage.Builder.class);
     }
@@ -488,17 +343,16 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      sensorId_ = "";
+      city_ = "";
+      temperature_ = 0F;
       message_ = "";
-      severity_ = 0;
-      timestamp_ = 0L;
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.weather.proto.WeatherProto.internal_static_weather_AlertMessage_descriptor;
+      return com.weather.proto.WeatherProto.internal_static_AlertMessage_descriptor;
     }
 
     @java.lang.Override
@@ -526,16 +380,13 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.weather.proto.AlertMessage result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.sensorId_ = sensorId_;
+        result.city_ = city_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.message_ = message_;
+        result.temperature_ = temperature_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.severity_ = severity_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.timestamp_ = timestamp_;
+        result.message_ = message_;
       }
     }
 
@@ -583,21 +434,18 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.weather.proto.AlertMessage other) {
       if (other == com.weather.proto.AlertMessage.getDefaultInstance()) return this;
-      if (!other.getSensorId().isEmpty()) {
-        sensorId_ = other.sensorId_;
+      if (!other.getCity().isEmpty()) {
+        city_ = other.city_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
+      if (other.getTemperature() != 0F) {
+        setTemperature(other.getTemperature());
+      }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
-      }
-      if (other.severity_ != 0) {
-        setSeverityValue(other.getSeverityValue());
-      }
-      if (other.getTimestamp() != 0L) {
-        setTimestamp(other.getTimestamp());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -626,25 +474,20 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              sensorId_ = input.readStringRequireUtf8();
+              city_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
-            case 18: {
-              message_ = input.readStringRequireUtf8();
+            case 21: {
+              temperature_ = input.readFloat();
               bitField0_ |= 0x00000002;
               break;
-            } // case 18
-            case 24: {
-              severity_ = input.readEnum();
+            } // case 21
+            case 26: {
+              message_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000004;
               break;
-            } // case 24
-            case 32: {
-              timestamp_ = input.readInt64();
-              bitField0_ |= 0x00000008;
-              break;
-            } // case 32
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -662,81 +505,113 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object sensorId_ = "";
+    private java.lang.Object city_ = "";
     /**
-     * <code>string sensor_id = 1;</code>
-     * @return The sensorId.
+     * <code>string city = 1;</code>
+     * @return The city.
      */
-    public java.lang.String getSensorId() {
-      java.lang.Object ref = sensorId_;
+    public java.lang.String getCity() {
+      java.lang.Object ref = city_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        sensorId_ = s;
+        city_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string sensor_id = 1;</code>
-     * @return The bytes for sensorId.
+     * <code>string city = 1;</code>
+     * @return The bytes for city.
      */
     public com.google.protobuf.ByteString
-        getSensorIdBytes() {
-      java.lang.Object ref = sensorId_;
+        getCityBytes() {
+      java.lang.Object ref = city_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        sensorId_ = b;
+        city_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string sensor_id = 1;</code>
-     * @param value The sensorId to set.
+     * <code>string city = 1;</code>
+     * @param value The city to set.
      * @return This builder for chaining.
      */
-    public Builder setSensorId(
+    public Builder setCity(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      sensorId_ = value;
+      city_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>string sensor_id = 1;</code>
+     * <code>string city = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSensorId() {
-      sensorId_ = getDefaultInstance().getSensorId();
+    public Builder clearCity() {
+      city_ = getDefaultInstance().getCity();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
-     * <code>string sensor_id = 1;</code>
-     * @param value The bytes for sensorId to set.
+     * <code>string city = 1;</code>
+     * @param value The bytes for city to set.
      * @return This builder for chaining.
      */
-    public Builder setSensorIdBytes(
+    public Builder setCityBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      sensorId_ = value;
+      city_ = value;
       bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+
+    private float temperature_ ;
+    /**
+     * <code>float temperature = 2;</code>
+     * @return The temperature.
+     */
+    @java.lang.Override
+    public float getTemperature() {
+      return temperature_;
+    }
+    /**
+     * <code>float temperature = 2;</code>
+     * @param value The temperature to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTemperature(float value) {
+
+      temperature_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>float temperature = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTemperature() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      temperature_ = 0F;
       onChanged();
       return this;
     }
 
     private java.lang.Object message_ = "";
     /**
-     * <code>string message = 2;</code>
+     * <code>string message = 3;</code>
      * @return The message.
      */
     public java.lang.String getMessage() {
@@ -752,7 +627,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string message = 2;</code>
+     * <code>string message = 3;</code>
      * @return The bytes for message.
      */
     public com.google.protobuf.ByteString
@@ -769,7 +644,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string message = 2;</code>
+     * <code>string message = 3;</code>
      * @param value The message to set.
      * @return This builder for chaining.
      */
@@ -777,22 +652,22 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       message_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
-     * <code>string message = 2;</code>
+     * <code>string message = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearMessage() {
       message_ = getDefaultInstance().getMessage();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
-     * <code>string message = 2;</code>
+     * <code>string message = 3;</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.
      */
@@ -801,92 +676,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       message_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-
-    private int severity_ = 0;
-    /**
-     * <code>.weather.AlertMessage.Severity severity = 3;</code>
-     * @return The enum numeric value on the wire for severity.
-     */
-    @java.lang.Override public int getSeverityValue() {
-      return severity_;
-    }
-    /**
-     * <code>.weather.AlertMessage.Severity severity = 3;</code>
-     * @param value The enum numeric value on the wire for severity to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSeverityValue(int value) {
-      severity_ = value;
       bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.weather.AlertMessage.Severity severity = 3;</code>
-     * @return The severity.
-     */
-    @java.lang.Override
-    public com.weather.proto.AlertMessage.Severity getSeverity() {
-      com.weather.proto.AlertMessage.Severity result = com.weather.proto.AlertMessage.Severity.forNumber(severity_);
-      return result == null ? com.weather.proto.AlertMessage.Severity.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.weather.AlertMessage.Severity severity = 3;</code>
-     * @param value The severity to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSeverity(com.weather.proto.AlertMessage.Severity value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      bitField0_ |= 0x00000004;
-      severity_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.weather.AlertMessage.Severity severity = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSeverity() {
-      bitField0_ = (bitField0_ & ~0x00000004);
-      severity_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private long timestamp_ ;
-    /**
-     * <code>int64 timestamp = 4;</code>
-     * @return The timestamp.
-     */
-    @java.lang.Override
-    public long getTimestamp() {
-      return timestamp_;
-    }
-    /**
-     * <code>int64 timestamp = 4;</code>
-     * @param value The timestamp to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTimestamp(long value) {
-
-      timestamp_ = value;
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 timestamp = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000008);
-      timestamp_ = 0L;
       onChanged();
       return this;
     }
@@ -903,10 +693,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:weather.AlertMessage)
+    // @@protoc_insertion_point(builder_scope:AlertMessage)
   }
 
-  // @@protoc_insertion_point(class_scope:weather.AlertMessage)
+  // @@protoc_insertion_point(class_scope:AlertMessage)
   private static final com.weather.proto.AlertMessage DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.weather.proto.AlertMessage();

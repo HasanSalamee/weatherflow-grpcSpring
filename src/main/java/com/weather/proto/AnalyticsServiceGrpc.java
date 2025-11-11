@@ -12,7 +12,7 @@ public final class AnalyticsServiceGrpc {
 
   private AnalyticsServiceGrpc() {}
 
-  public static final java.lang.String SERVICE_NAME = "weather.AnalyticsService";
+  public static final java.lang.String SERVICE_NAME = "AnalyticsService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.weather.proto.ReportRequest,

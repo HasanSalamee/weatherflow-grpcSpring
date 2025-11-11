@@ -5,74 +5,85 @@
 package com.weather.proto;
 
 /**
- * Protobuf type {@code ReportRequest}
+ * Protobuf type {@code SensorAck}
  */
-public final class ReportRequest extends
+public final class SensorAck extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:ReportRequest)
-    ReportRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:SensorAck)
+    SensorAckOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ReportRequest.newBuilder() to construct.
-  private ReportRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use SensorAck.newBuilder() to construct.
+  private SensorAck(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ReportRequest() {
-    region_ = "";
+  private SensorAck() {
+    msg_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ReportRequest();
+    return new SensorAck();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.weather.proto.WeatherProto.internal_static_ReportRequest_descriptor;
+    return com.weather.proto.WeatherProto.internal_static_SensorAck_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.weather.proto.WeatherProto.internal_static_ReportRequest_fieldAccessorTable
+    return com.weather.proto.WeatherProto.internal_static_SensorAck_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.weather.proto.ReportRequest.class, com.weather.proto.ReportRequest.Builder.class);
+            com.weather.proto.SensorAck.class, com.weather.proto.SensorAck.Builder.class);
   }
 
-  public static final int REGION_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object region_ = "";
+  public static final int OK_FIELD_NUMBER = 1;
+  private boolean ok_ = false;
   /**
-   * <code>string region = 1;</code>
-   * @return The region.
+   * <code>bool ok = 1;</code>
+   * @return The ok.
    */
   @java.lang.Override
-  public java.lang.String getRegion() {
-    java.lang.Object ref = region_;
+  public boolean getOk() {
+    return ok_;
+  }
+
+  public static final int MSG_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object msg_ = "";
+  /**
+   * <code>string msg = 2;</code>
+   * @return The msg.
+   */
+  @java.lang.Override
+  public java.lang.String getMsg() {
+    java.lang.Object ref = msg_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      region_ = s;
+      msg_ = s;
       return s;
     }
   }
   /**
-   * <code>string region = 1;</code>
-   * @return The bytes for region.
+   * <code>string msg = 2;</code>
+   * @return The bytes for msg.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getRegionBytes() {
-    java.lang.Object ref = region_;
+      getMsgBytes() {
+    java.lang.Object ref = msg_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      region_ = b;
+      msg_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -93,8 +104,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, region_);
+    if (ok_ != false) {
+      output.writeBool(1, ok_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msg_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, msg_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -105,8 +119,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, region_);
+    if (ok_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(1, ok_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msg_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, msg_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -118,13 +136,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.weather.proto.ReportRequest)) {
+    if (!(obj instanceof com.weather.proto.SensorAck)) {
       return super.equals(obj);
     }
-    com.weather.proto.ReportRequest other = (com.weather.proto.ReportRequest) obj;
+    com.weather.proto.SensorAck other = (com.weather.proto.SensorAck) obj;
 
-    if (!getRegion()
-        .equals(other.getRegion())) return false;
+    if (getOk()
+        != other.getOk()) return false;
+    if (!getMsg()
+        .equals(other.getMsg())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -136,51 +156,54 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + REGION_FIELD_NUMBER;
-    hash = (53 * hash) + getRegion().hashCode();
+    hash = (37 * hash) + OK_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getOk());
+    hash = (37 * hash) + MSG_FIELD_NUMBER;
+    hash = (53 * hash) + getMsg().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.weather.proto.ReportRequest parseFrom(
+  public static com.weather.proto.SensorAck parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.weather.proto.ReportRequest parseFrom(
+  public static com.weather.proto.SensorAck parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.weather.proto.ReportRequest parseFrom(
+  public static com.weather.proto.SensorAck parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.weather.proto.ReportRequest parseFrom(
+  public static com.weather.proto.SensorAck parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.weather.proto.ReportRequest parseFrom(byte[] data)
+  public static com.weather.proto.SensorAck parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.weather.proto.ReportRequest parseFrom(
+  public static com.weather.proto.SensorAck parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.weather.proto.ReportRequest parseFrom(java.io.InputStream input)
+  public static com.weather.proto.SensorAck parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.weather.proto.ReportRequest parseFrom(
+  public static com.weather.proto.SensorAck parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -188,26 +211,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.weather.proto.ReportRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.weather.proto.SensorAck parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.weather.proto.ReportRequest parseDelimitedFrom(
+  public static com.weather.proto.SensorAck parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.weather.proto.ReportRequest parseFrom(
+  public static com.weather.proto.SensorAck parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.weather.proto.ReportRequest parseFrom(
+  public static com.weather.proto.SensorAck parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -220,7 +243,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.weather.proto.ReportRequest prototype) {
+  public static Builder newBuilder(com.weather.proto.SensorAck prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -236,26 +259,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code ReportRequest}
+   * Protobuf type {@code SensorAck}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:ReportRequest)
-      com.weather.proto.ReportRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:SensorAck)
+      com.weather.proto.SensorAckOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.weather.proto.WeatherProto.internal_static_ReportRequest_descriptor;
+      return com.weather.proto.WeatherProto.internal_static_SensorAck_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.weather.proto.WeatherProto.internal_static_ReportRequest_fieldAccessorTable
+      return com.weather.proto.WeatherProto.internal_static_SensorAck_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.weather.proto.ReportRequest.class, com.weather.proto.ReportRequest.Builder.class);
+              com.weather.proto.SensorAck.class, com.weather.proto.SensorAck.Builder.class);
     }
 
-    // Construct using com.weather.proto.ReportRequest.newBuilder()
+    // Construct using com.weather.proto.SensorAck.newBuilder()
     private Builder() {
 
     }
@@ -269,24 +292,25 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      region_ = "";
+      ok_ = false;
+      msg_ = "";
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.weather.proto.WeatherProto.internal_static_ReportRequest_descriptor;
+      return com.weather.proto.WeatherProto.internal_static_SensorAck_descriptor;
     }
 
     @java.lang.Override
-    public com.weather.proto.ReportRequest getDefaultInstanceForType() {
-      return com.weather.proto.ReportRequest.getDefaultInstance();
+    public com.weather.proto.SensorAck getDefaultInstanceForType() {
+      return com.weather.proto.SensorAck.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.weather.proto.ReportRequest build() {
-      com.weather.proto.ReportRequest result = buildPartial();
+    public com.weather.proto.SensorAck build() {
+      com.weather.proto.SensorAck result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -294,17 +318,20 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.weather.proto.ReportRequest buildPartial() {
-      com.weather.proto.ReportRequest result = new com.weather.proto.ReportRequest(this);
+    public com.weather.proto.SensorAck buildPartial() {
+      com.weather.proto.SensorAck result = new com.weather.proto.SensorAck(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.weather.proto.ReportRequest result) {
+    private void buildPartial0(com.weather.proto.SensorAck result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.region_ = region_;
+        result.ok_ = ok_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.msg_ = msg_;
       }
     }
 
@@ -342,19 +369,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.weather.proto.ReportRequest) {
-        return mergeFrom((com.weather.proto.ReportRequest)other);
+      if (other instanceof com.weather.proto.SensorAck) {
+        return mergeFrom((com.weather.proto.SensorAck)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.weather.proto.ReportRequest other) {
-      if (other == com.weather.proto.ReportRequest.getDefaultInstance()) return this;
-      if (!other.getRegion().isEmpty()) {
-        region_ = other.region_;
-        bitField0_ |= 0x00000001;
+    public Builder mergeFrom(com.weather.proto.SensorAck other) {
+      if (other == com.weather.proto.SensorAck.getDefaultInstance()) return this;
+      if (other.getOk() != false) {
+        setOk(other.getOk());
+      }
+      if (!other.getMsg().isEmpty()) {
+        msg_ = other.msg_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -383,11 +413,16 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              region_ = input.readStringRequireUtf8();
+            case 8: {
+              ok_ = input.readBool();
               bitField0_ |= 0x00000001;
               break;
-            } // case 10
+            } // case 8
+            case 18: {
+              msg_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -405,74 +440,106 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object region_ = "";
+    private boolean ok_ ;
     /**
-     * <code>string region = 1;</code>
-     * @return The region.
+     * <code>bool ok = 1;</code>
+     * @return The ok.
      */
-    public java.lang.String getRegion() {
-      java.lang.Object ref = region_;
+    @java.lang.Override
+    public boolean getOk() {
+      return ok_;
+    }
+    /**
+     * <code>bool ok = 1;</code>
+     * @param value The ok to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOk(boolean value) {
+
+      ok_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool ok = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOk() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      ok_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object msg_ = "";
+    /**
+     * <code>string msg = 2;</code>
+     * @return The msg.
+     */
+    public java.lang.String getMsg() {
+      java.lang.Object ref = msg_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        region_ = s;
+        msg_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string region = 1;</code>
-     * @return The bytes for region.
+     * <code>string msg = 2;</code>
+     * @return The bytes for msg.
      */
     public com.google.protobuf.ByteString
-        getRegionBytes() {
-      java.lang.Object ref = region_;
+        getMsgBytes() {
+      java.lang.Object ref = msg_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        region_ = b;
+        msg_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string region = 1;</code>
-     * @param value The region to set.
+     * <code>string msg = 2;</code>
+     * @param value The msg to set.
      * @return This builder for chaining.
      */
-    public Builder setRegion(
+    public Builder setMsg(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      region_ = value;
-      bitField0_ |= 0x00000001;
+      msg_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>string region = 1;</code>
+     * <code>string msg = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearRegion() {
-      region_ = getDefaultInstance().getRegion();
-      bitField0_ = (bitField0_ & ~0x00000001);
+    public Builder clearMsg() {
+      msg_ = getDefaultInstance().getMsg();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
-     * <code>string region = 1;</code>
-     * @param value The bytes for region to set.
+     * <code>string msg = 2;</code>
+     * @param value The bytes for msg to set.
      * @return This builder for chaining.
      */
-    public Builder setRegionBytes(
+    public Builder setMsgBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      region_ = value;
-      bitField0_ |= 0x00000001;
+      msg_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -489,23 +556,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:ReportRequest)
+    // @@protoc_insertion_point(builder_scope:SensorAck)
   }
 
-  // @@protoc_insertion_point(class_scope:ReportRequest)
-  private static final com.weather.proto.ReportRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:SensorAck)
+  private static final com.weather.proto.SensorAck DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.weather.proto.ReportRequest();
+    DEFAULT_INSTANCE = new com.weather.proto.SensorAck();
   }
 
-  public static com.weather.proto.ReportRequest getDefaultInstance() {
+  public static com.weather.proto.SensorAck getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ReportRequest>
-      PARSER = new com.google.protobuf.AbstractParser<ReportRequest>() {
+  private static final com.google.protobuf.Parser<SensorAck>
+      PARSER = new com.google.protobuf.AbstractParser<SensorAck>() {
     @java.lang.Override
-    public ReportRequest parsePartialFrom(
+    public SensorAck parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -524,17 +591,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<ReportRequest> parser() {
+  public static com.google.protobuf.Parser<SensorAck> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ReportRequest> getParserForType() {
+  public com.google.protobuf.Parser<SensorAck> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.weather.proto.ReportRequest getDefaultInstanceForType() {
+  public com.weather.proto.SensorAck getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

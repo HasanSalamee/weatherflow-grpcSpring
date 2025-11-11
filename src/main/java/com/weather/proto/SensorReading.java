@@ -5,18 +5,22 @@
 package com.weather.proto;
 
 /**
- * Protobuf type {@code weather.WeatherData}
+ * <pre>
+ * Sensor service: client-streaming RPC for sensors to send readings
+ * </pre>
+ *
+ * Protobuf type {@code SensorReading}
  */
-public final class WeatherData extends
+public final class SensorReading extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:weather.WeatherData)
-    WeatherDataOrBuilder {
+    // @@protoc_insertion_point(message_implements:SensorReading)
+    SensorReadingOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use WeatherData.newBuilder() to construct.
-  private WeatherData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use SensorReading.newBuilder() to construct.
+  private SensorReading(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private WeatherData() {
+  private SensorReading() {
     sensorId_ = "";
   }
 
@@ -24,20 +28,20 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new WeatherData();
+    return new SensorReading();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.weather.proto.WeatherProto.internal_static_weather_WeatherData_descriptor;
+    return com.weather.proto.WeatherProto.internal_static_SensorReading_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.weather.proto.WeatherProto.internal_static_weather_WeatherData_fieldAccessorTable
+    return com.weather.proto.WeatherProto.internal_static_SensorReading_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.weather.proto.WeatherData.class, com.weather.proto.WeatherData.Builder.class);
+            com.weather.proto.SensorReading.class, com.weather.proto.SensorReading.Builder.class);
   }
 
   public static final int SENSOR_ID_FIELD_NUMBER = 1;
@@ -80,47 +84,51 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEMPERATURE_FIELD_NUMBER = 2;
-  private double temperature_ = 0D;
+  private float temperature_ = 0F;
   /**
-   * <code>double temperature = 2;</code>
+   * <code>float temperature = 2;</code>
    * @return The temperature.
    */
   @java.lang.Override
-  public double getTemperature() {
+  public float getTemperature() {
     return temperature_;
   }
 
   public static final int HUMIDITY_FIELD_NUMBER = 3;
-  private double humidity_ = 0D;
+  private float humidity_ = 0F;
   /**
-   * <code>double humidity = 3;</code>
+   * <code>float humidity = 3;</code>
    * @return The humidity.
    */
   @java.lang.Override
-  public double getHumidity() {
+  public float getHumidity() {
     return humidity_;
   }
 
   public static final int PRESSURE_FIELD_NUMBER = 4;
-  private double pressure_ = 0D;
+  private float pressure_ = 0F;
   /**
-   * <code>double pressure = 4;</code>
+   * <code>float pressure = 4;</code>
    * @return The pressure.
    */
   @java.lang.Override
-  public double getPressure() {
+  public float getPressure() {
     return pressure_;
   }
 
-  public static final int TIMESTAMP_FIELD_NUMBER = 5;
-  private long timestamp_ = 0L;
+  public static final int TS_FIELD_NUMBER = 5;
+  private long ts_ = 0L;
   /**
-   * <code>int64 timestamp = 5;</code>
-   * @return The timestamp.
+   * <pre>
+   * unix epoch ms
+   * </pre>
+   *
+   * <code>int64 ts = 5;</code>
+   * @return The ts.
    */
   @java.lang.Override
-  public long getTimestamp() {
-    return timestamp_;
+  public long getTs() {
+    return ts_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -140,17 +148,17 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sensorId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sensorId_);
     }
-    if (java.lang.Double.doubleToRawLongBits(temperature_) != 0) {
-      output.writeDouble(2, temperature_);
+    if (java.lang.Float.floatToRawIntBits(temperature_) != 0) {
+      output.writeFloat(2, temperature_);
     }
-    if (java.lang.Double.doubleToRawLongBits(humidity_) != 0) {
-      output.writeDouble(3, humidity_);
+    if (java.lang.Float.floatToRawIntBits(humidity_) != 0) {
+      output.writeFloat(3, humidity_);
     }
-    if (java.lang.Double.doubleToRawLongBits(pressure_) != 0) {
-      output.writeDouble(4, pressure_);
+    if (java.lang.Float.floatToRawIntBits(pressure_) != 0) {
+      output.writeFloat(4, pressure_);
     }
-    if (timestamp_ != 0L) {
-      output.writeInt64(5, timestamp_);
+    if (ts_ != 0L) {
+      output.writeInt64(5, ts_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -164,21 +172,21 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sensorId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sensorId_);
     }
-    if (java.lang.Double.doubleToRawLongBits(temperature_) != 0) {
+    if (java.lang.Float.floatToRawIntBits(temperature_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(2, temperature_);
+        .computeFloatSize(2, temperature_);
     }
-    if (java.lang.Double.doubleToRawLongBits(humidity_) != 0) {
+    if (java.lang.Float.floatToRawIntBits(humidity_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(3, humidity_);
+        .computeFloatSize(3, humidity_);
     }
-    if (java.lang.Double.doubleToRawLongBits(pressure_) != 0) {
+    if (java.lang.Float.floatToRawIntBits(pressure_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(4, pressure_);
+        .computeFloatSize(4, pressure_);
     }
-    if (timestamp_ != 0L) {
+    if (ts_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, timestamp_);
+        .computeInt64Size(5, ts_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -190,24 +198,24 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.weather.proto.WeatherData)) {
+    if (!(obj instanceof com.weather.proto.SensorReading)) {
       return super.equals(obj);
     }
-    com.weather.proto.WeatherData other = (com.weather.proto.WeatherData) obj;
+    com.weather.proto.SensorReading other = (com.weather.proto.SensorReading) obj;
 
     if (!getSensorId()
         .equals(other.getSensorId())) return false;
-    if (java.lang.Double.doubleToLongBits(getTemperature())
-        != java.lang.Double.doubleToLongBits(
+    if (java.lang.Float.floatToIntBits(getTemperature())
+        != java.lang.Float.floatToIntBits(
             other.getTemperature())) return false;
-    if (java.lang.Double.doubleToLongBits(getHumidity())
-        != java.lang.Double.doubleToLongBits(
+    if (java.lang.Float.floatToIntBits(getHumidity())
+        != java.lang.Float.floatToIntBits(
             other.getHumidity())) return false;
-    if (java.lang.Double.doubleToLongBits(getPressure())
-        != java.lang.Double.doubleToLongBits(
+    if (java.lang.Float.floatToIntBits(getPressure())
+        != java.lang.Float.floatToIntBits(
             other.getPressure())) return false;
-    if (getTimestamp()
-        != other.getTimestamp()) return false;
+    if (getTs()
+        != other.getTs()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -222,60 +230,60 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SENSOR_ID_FIELD_NUMBER;
     hash = (53 * hash) + getSensorId().hashCode();
     hash = (37 * hash) + TEMPERATURE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getTemperature()));
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getTemperature());
     hash = (37 * hash) + HUMIDITY_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getHumidity()));
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getHumidity());
     hash = (37 * hash) + PRESSURE_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getPressure());
+    hash = (37 * hash) + TS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getPressure()));
-    hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getTimestamp());
+        getTs());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.weather.proto.WeatherData parseFrom(
+  public static com.weather.proto.SensorReading parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.weather.proto.WeatherData parseFrom(
+  public static com.weather.proto.SensorReading parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.weather.proto.WeatherData parseFrom(
+  public static com.weather.proto.SensorReading parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.weather.proto.WeatherData parseFrom(
+  public static com.weather.proto.SensorReading parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.weather.proto.WeatherData parseFrom(byte[] data)
+  public static com.weather.proto.SensorReading parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.weather.proto.WeatherData parseFrom(
+  public static com.weather.proto.SensorReading parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.weather.proto.WeatherData parseFrom(java.io.InputStream input)
+  public static com.weather.proto.SensorReading parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.weather.proto.WeatherData parseFrom(
+  public static com.weather.proto.SensorReading parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -283,26 +291,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.weather.proto.WeatherData parseDelimitedFrom(java.io.InputStream input)
+  public static com.weather.proto.SensorReading parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.weather.proto.WeatherData parseDelimitedFrom(
+  public static com.weather.proto.SensorReading parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.weather.proto.WeatherData parseFrom(
+  public static com.weather.proto.SensorReading parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.weather.proto.WeatherData parseFrom(
+  public static com.weather.proto.SensorReading parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -315,7 +323,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.weather.proto.WeatherData prototype) {
+  public static Builder newBuilder(com.weather.proto.SensorReading prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -331,26 +339,30 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code weather.WeatherData}
+   * <pre>
+   * Sensor service: client-streaming RPC for sensors to send readings
+   * </pre>
+   *
+   * Protobuf type {@code SensorReading}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:weather.WeatherData)
-      com.weather.proto.WeatherDataOrBuilder {
+      // @@protoc_insertion_point(builder_implements:SensorReading)
+      com.weather.proto.SensorReadingOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.weather.proto.WeatherProto.internal_static_weather_WeatherData_descriptor;
+      return com.weather.proto.WeatherProto.internal_static_SensorReading_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.weather.proto.WeatherProto.internal_static_weather_WeatherData_fieldAccessorTable
+      return com.weather.proto.WeatherProto.internal_static_SensorReading_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.weather.proto.WeatherData.class, com.weather.proto.WeatherData.Builder.class);
+              com.weather.proto.SensorReading.class, com.weather.proto.SensorReading.Builder.class);
     }
 
-    // Construct using com.weather.proto.WeatherData.newBuilder()
+    // Construct using com.weather.proto.SensorReading.newBuilder()
     private Builder() {
 
     }
@@ -365,27 +377,27 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       sensorId_ = "";
-      temperature_ = 0D;
-      humidity_ = 0D;
-      pressure_ = 0D;
-      timestamp_ = 0L;
+      temperature_ = 0F;
+      humidity_ = 0F;
+      pressure_ = 0F;
+      ts_ = 0L;
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.weather.proto.WeatherProto.internal_static_weather_WeatherData_descriptor;
+      return com.weather.proto.WeatherProto.internal_static_SensorReading_descriptor;
     }
 
     @java.lang.Override
-    public com.weather.proto.WeatherData getDefaultInstanceForType() {
-      return com.weather.proto.WeatherData.getDefaultInstance();
+    public com.weather.proto.SensorReading getDefaultInstanceForType() {
+      return com.weather.proto.SensorReading.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.weather.proto.WeatherData build() {
-      com.weather.proto.WeatherData result = buildPartial();
+    public com.weather.proto.SensorReading build() {
+      com.weather.proto.SensorReading result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -393,14 +405,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.weather.proto.WeatherData buildPartial() {
-      com.weather.proto.WeatherData result = new com.weather.proto.WeatherData(this);
+    public com.weather.proto.SensorReading buildPartial() {
+      com.weather.proto.SensorReading result = new com.weather.proto.SensorReading(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.weather.proto.WeatherData result) {
+    private void buildPartial0(com.weather.proto.SensorReading result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.sensorId_ = sensorId_;
@@ -415,7 +427,7 @@ private static final long serialVersionUID = 0L;
         result.pressure_ = pressure_;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.timestamp_ = timestamp_;
+        result.ts_ = ts_;
       }
     }
 
@@ -453,32 +465,32 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.weather.proto.WeatherData) {
-        return mergeFrom((com.weather.proto.WeatherData)other);
+      if (other instanceof com.weather.proto.SensorReading) {
+        return mergeFrom((com.weather.proto.SensorReading)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.weather.proto.WeatherData other) {
-      if (other == com.weather.proto.WeatherData.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.weather.proto.SensorReading other) {
+      if (other == com.weather.proto.SensorReading.getDefaultInstance()) return this;
       if (!other.getSensorId().isEmpty()) {
         sensorId_ = other.sensorId_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
-      if (other.getTemperature() != 0D) {
+      if (other.getTemperature() != 0F) {
         setTemperature(other.getTemperature());
       }
-      if (other.getHumidity() != 0D) {
+      if (other.getHumidity() != 0F) {
         setHumidity(other.getHumidity());
       }
-      if (other.getPressure() != 0D) {
+      if (other.getPressure() != 0F) {
         setPressure(other.getPressure());
       }
-      if (other.getTimestamp() != 0L) {
-        setTimestamp(other.getTimestamp());
+      if (other.getTs() != 0L) {
+        setTs(other.getTs());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -511,23 +523,23 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000001;
               break;
             } // case 10
-            case 17: {
-              temperature_ = input.readDouble();
+            case 21: {
+              temperature_ = input.readFloat();
               bitField0_ |= 0x00000002;
               break;
-            } // case 17
-            case 25: {
-              humidity_ = input.readDouble();
+            } // case 21
+            case 29: {
+              humidity_ = input.readFloat();
               bitField0_ |= 0x00000004;
               break;
-            } // case 25
-            case 33: {
-              pressure_ = input.readDouble();
+            } // case 29
+            case 37: {
+              pressure_ = input.readFloat();
               bitField0_ |= 0x00000008;
               break;
-            } // case 33
+            } // case 37
             case 40: {
-              timestamp_ = input.readInt64();
+              ts_ = input.readInt64();
               bitField0_ |= 0x00000010;
               break;
             } // case 40
@@ -620,21 +632,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double temperature_ ;
+    private float temperature_ ;
     /**
-     * <code>double temperature = 2;</code>
+     * <code>float temperature = 2;</code>
      * @return The temperature.
      */
     @java.lang.Override
-    public double getTemperature() {
+    public float getTemperature() {
       return temperature_;
     }
     /**
-     * <code>double temperature = 2;</code>
+     * <code>float temperature = 2;</code>
      * @param value The temperature to set.
      * @return This builder for chaining.
      */
-    public Builder setTemperature(double value) {
+    public Builder setTemperature(float value) {
 
       temperature_ = value;
       bitField0_ |= 0x00000002;
@@ -642,31 +654,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double temperature = 2;</code>
+     * <code>float temperature = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearTemperature() {
       bitField0_ = (bitField0_ & ~0x00000002);
-      temperature_ = 0D;
+      temperature_ = 0F;
       onChanged();
       return this;
     }
 
-    private double humidity_ ;
+    private float humidity_ ;
     /**
-     * <code>double humidity = 3;</code>
+     * <code>float humidity = 3;</code>
      * @return The humidity.
      */
     @java.lang.Override
-    public double getHumidity() {
+    public float getHumidity() {
       return humidity_;
     }
     /**
-     * <code>double humidity = 3;</code>
+     * <code>float humidity = 3;</code>
      * @param value The humidity to set.
      * @return This builder for chaining.
      */
-    public Builder setHumidity(double value) {
+    public Builder setHumidity(float value) {
 
       humidity_ = value;
       bitField0_ |= 0x00000004;
@@ -674,31 +686,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double humidity = 3;</code>
+     * <code>float humidity = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearHumidity() {
       bitField0_ = (bitField0_ & ~0x00000004);
-      humidity_ = 0D;
+      humidity_ = 0F;
       onChanged();
       return this;
     }
 
-    private double pressure_ ;
+    private float pressure_ ;
     /**
-     * <code>double pressure = 4;</code>
+     * <code>float pressure = 4;</code>
      * @return The pressure.
      */
     @java.lang.Override
-    public double getPressure() {
+    public float getPressure() {
       return pressure_;
     }
     /**
-     * <code>double pressure = 4;</code>
+     * <code>float pressure = 4;</code>
      * @param value The pressure to set.
      * @return This builder for chaining.
      */
-    public Builder setPressure(double value) {
+    public Builder setPressure(float value) {
 
       pressure_ = value;
       bitField0_ |= 0x00000008;
@@ -706,44 +718,56 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double pressure = 4;</code>
+     * <code>float pressure = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearPressure() {
       bitField0_ = (bitField0_ & ~0x00000008);
-      pressure_ = 0D;
+      pressure_ = 0F;
       onChanged();
       return this;
     }
 
-    private long timestamp_ ;
+    private long ts_ ;
     /**
-     * <code>int64 timestamp = 5;</code>
-     * @return The timestamp.
+     * <pre>
+     * unix epoch ms
+     * </pre>
+     *
+     * <code>int64 ts = 5;</code>
+     * @return The ts.
      */
     @java.lang.Override
-    public long getTimestamp() {
-      return timestamp_;
+    public long getTs() {
+      return ts_;
     }
     /**
-     * <code>int64 timestamp = 5;</code>
-     * @param value The timestamp to set.
+     * <pre>
+     * unix epoch ms
+     * </pre>
+     *
+     * <code>int64 ts = 5;</code>
+     * @param value The ts to set.
      * @return This builder for chaining.
      */
-    public Builder setTimestamp(long value) {
+    public Builder setTs(long value) {
 
-      timestamp_ = value;
+      ts_ = value;
       bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 timestamp = 5;</code>
+     * <pre>
+     * unix epoch ms
+     * </pre>
+     *
+     * <code>int64 ts = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearTimestamp() {
+    public Builder clearTs() {
       bitField0_ = (bitField0_ & ~0x00000010);
-      timestamp_ = 0L;
+      ts_ = 0L;
       onChanged();
       return this;
     }
@@ -760,23 +784,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:weather.WeatherData)
+    // @@protoc_insertion_point(builder_scope:SensorReading)
   }
 
-  // @@protoc_insertion_point(class_scope:weather.WeatherData)
-  private static final com.weather.proto.WeatherData DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:SensorReading)
+  private static final com.weather.proto.SensorReading DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.weather.proto.WeatherData();
+    DEFAULT_INSTANCE = new com.weather.proto.SensorReading();
   }
 
-  public static com.weather.proto.WeatherData getDefaultInstance() {
+  public static com.weather.proto.SensorReading getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<WeatherData>
-      PARSER = new com.google.protobuf.AbstractParser<WeatherData>() {
+  private static final com.google.protobuf.Parser<SensorReading>
+      PARSER = new com.google.protobuf.AbstractParser<SensorReading>() {
     @java.lang.Override
-    public WeatherData parsePartialFrom(
+    public SensorReading parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -795,17 +819,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<WeatherData> parser() {
+  public static com.google.protobuf.Parser<SensorReading> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<WeatherData> getParserForType() {
+  public com.google.protobuf.Parser<SensorReading> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.weather.proto.WeatherData getDefaultInstanceForType() {
+  public com.weather.proto.SensorReading getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

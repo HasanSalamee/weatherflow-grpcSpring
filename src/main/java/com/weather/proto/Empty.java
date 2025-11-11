@@ -5,11 +5,11 @@
 package com.weather.proto;
 
 /**
- * Protobuf type {@code weather.Empty}
+ * Protobuf type {@code Empty}
  */
 public final class Empty extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:weather.Empty)
+    // @@protoc_insertion_point(message_implements:Empty)
     EmptyOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use Empty.newBuilder() to construct.
@@ -28,13 +28,13 @@ private static final long serialVersionUID = 0L;
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.weather.proto.WeatherProto.internal_static_weather_Empty_descriptor;
+    return com.weather.proto.WeatherProto.internal_static_Empty_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.weather.proto.WeatherProto.internal_static_weather_Empty_fieldAccessorTable
+    return com.weather.proto.WeatherProto.internal_static_Empty_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.weather.proto.Empty.class, com.weather.proto.Empty.Builder.class);
   }
@@ -186,21 +186,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code weather.Empty}
+   * Protobuf type {@code Empty}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:weather.Empty)
+      // @@protoc_insertion_point(builder_implements:Empty)
       com.weather.proto.EmptyOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.weather.proto.WeatherProto.internal_static_weather_Empty_descriptor;
+      return com.weather.proto.WeatherProto.internal_static_Empty_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.weather.proto.WeatherProto.internal_static_weather_Empty_fieldAccessorTable
+      return com.weather.proto.WeatherProto.internal_static_Empty_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.weather.proto.Empty.class, com.weather.proto.Empty.Builder.class);
     }
@@ -224,7 +224,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.weather.proto.WeatherProto.internal_static_weather_Empty_descriptor;
+      return com.weather.proto.WeatherProto.internal_static_Empty_descriptor;
     }
 
     @java.lang.Override
@@ -346,10 +346,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:weather.Empty)
+    // @@protoc_insertion_point(builder_scope:Empty)
   }
 
-  // @@protoc_insertion_point(class_scope:weather.Empty)
+  // @@protoc_insertion_point(class_scope:Empty)
   private static final com.weather.proto.Empty DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.weather.proto.Empty();

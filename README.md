@@ -113,7 +113,7 @@ java -cp "bin:lib/*" com.example.javaServer.Client.Main
 ==================================================
 🌤️ Distributed Weather Monitoring System Client
 ==================================================
-📍 Connecting to: 192.168.96.202:50052
+📍 Connecting to: 192.168.96.202:50053
 🚀 Starting weather monitoring client...
 📊 Subscribing to weather statistics...
 🚨 Subscribing to weather alerts...
@@ -130,7 +130,7 @@ python test_stream_sensor.py
 **Expected Output:**
 ```
 🌤️ Weather Sensor Client - Random Data
-📍 Target: 192.168.96.202:50052
+📍 Target: 192.168.96.202:50053
 🔄 Sending 10 random readings...
 [14:30:25] 📤 Sending reading #1:
    🆔 Sensor: python-sensor-5678
@@ -170,13 +170,13 @@ Update the IP addresses in each component:
 **Java Client:**
 ```java
 String host = "192.168.96.202";  // Your Go service IP
-int port = 50052;
+int port = 50053;
 ```
 
 **Python Sensor:**
 ```python
 host = "192.168.96.202"  # Your Go service IP
-port = 50052
+port = 50053
 ```
 
 **Go Service:**
@@ -215,22 +215,6 @@ Each component provides detailed logs:
 - **Java**: Subscription status and web server
 - **Python**: Data generation and transmission
 
-## 📁 Project Structure
-
-```
-weatherflow-grpcSpring/
-├── go-service/
-│   ├── main.go                 # Go analytics service
-│   └── weather.pb.go           # Generated Go protobuf
-├── java-client/
-│   ├── src/                    # Java source code
-│   ├── lib/                    # Dependencies
-│   └── bin/                    # Compiled classes
-├── python-sensor/
-│   └── test_stream_sensor.py   # Python sensor client
-├── weather.proto               # Protocol buffers definition
-└── README.md                   # This file
-```
 
 ## 🔄 Data Flow Details
 

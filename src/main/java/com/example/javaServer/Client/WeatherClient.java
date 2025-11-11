@@ -33,29 +33,29 @@ public class WeatherClient {
 
         this.asyncStub = AnalyticsServiceGrpc.newStub(channel);
 
-        // إضافة خطاف لإغلاق نظيف
+        // Add shutdown hook for clean closure
         Runtime.getRuntime().addShutdownHook(new Thread(this::shutdown));
     }
 
     public void start() {
-        System.out.println("🚀 بدء عميل مراقبة الطقس...");
-        System.out.println("📍 الاتصال بـ: " + host + ":" + port);
+        System.out.println("🚀 Starting weather monitoring client...");
+        System.out.println("📍 Connecting to: " + host + ":" + port);
 
-        // بدء خدمة الويب
+        // Start web service
         dashboardService.start();
 
-        // الاشتراك في الإحصائيات
+        // Subscribe to statistics
         subscribeToStats();
 
-        // الاشتراك في التنبيهات
+        // Subscribe to alerts
         subscribeToAlerts();
 
-        // الحفاظ على البرنامج نشط
+        // Keep program active
         keepAlive();
     }
 
     private void subscribeToStats() {
-        System.out.println("📊 جاري الاشتراك في إحصائيات الطقس...");
+        System.out.println("📊 Subscribing to weather statistics...");
 
         ReportRequest request = ReportRequest.newBuilder()
                 .setRegion("Middle-East")
@@ -64,25 +64,25 @@ public class WeatherClient {
         asyncStub.subscribeToStats(request, new StreamObserver<WeatherStats>() {
             @Override
             public void onNext(WeatherStats stats) {
-                System.out.println("📈 بيانات إحصائيات جديدة:");
-                System.out.printf("   📍 متوسط الحرارة: %.2f°C\n", stats.getAvgTemp());
-                System.out.printf("   🔥 أقصى حرارة: %.2f°C\n", stats.getMaxTemp());
-                System.out.printf("   ⚠️  إجمالي التنبيهات: %d\n", stats.getTotalAlerts());
+                System.out.println("📈 New statistics data:");
+                System.out.printf("   📍 Average Temperature: %.2f°C\n", stats.getAvgTemp());
+                System.out.printf("   🔥 Max Temperature: %.2f°C\n", stats.getMaxTemp());
+                System.out.printf("   ⚠️  Total Alerts: %d\n", stats.getTotalAlerts());
                 System.out.println("   " + "=".repeat(40));
 
-                // حفظ البيانات للتخزين
+                // Save data for storage
                 dataStorage.addStats(stats);
 
-                // تحديث لوحة التحكم
+                // Update dashboard
                 dashboardService.updateStats(stats);
             }
 
             @Override
             public void onError(Throwable t) {
-                System.err.println("❌ خطأ في اشتراك الإحصائيات: " + t.getMessage());
-                System.out.println("🔄 إعادة المحاولة خلال 10 ثواني...");
+                System.err.println("❌ Error in statistics subscription: " + t.getMessage());
+                System.out.println("🔄 Retrying in 10 seconds...");
 
-                // إعادة المحاولة بعد فترة
+                // Retry after delay
                 if (isRunning.get()) {
                     try {
                         Thread.sleep(10000);
@@ -95,9 +95,9 @@ public class WeatherClient {
 
             @Override
             public void onCompleted() {
-                System.out.println("🔚 انتهى تدفق الإحصائيات من الخادم");
+                System.out.println("🔚 Statistics stream ended from server");
                 if (isRunning.get()) {
-                    System.out.println("🔄 إعادة الاتصال...");
+                    System.out.println("🔄 Reconnecting...");
                     subscribeToStats();
                 }
             }
@@ -105,31 +105,31 @@ public class WeatherClient {
     }
 
     private void subscribeToAlerts() {
-        System.out.println("🚨 جاري الاشتراك في تنبيهات الطقس...");
+        System.out.println("🚨 Subscribing to weather alerts...");
 
         asyncStub.subscribeToAlerts(Empty.newBuilder().build(), new StreamObserver<AlertMessage>() {
             @Override
             public void onNext(AlertMessage alert) {
-                System.out.println("⚠️  تنبيه طقس جديد:");
-                System.out.printf("   🏙️  المدينة: %s\n", alert.getCity());
-                System.out.printf("   🌡️  درجة الحرارة: %.2f°C\n", alert.getTemperature());
-                System.out.printf("   📝 الرسالة: %s\n", alert.getMessage());
+                System.out.println("⚠️  New weather alert:");
+                System.out.printf("   🏙️  City: %s\n", alert.getCity());
+                System.out.printf("   🌡️  Temperature: %.2f°C\n", alert.getTemperature());
+                System.out.printf("   📝 Message: %s\n", alert.getMessage());
                 System.out.println("   " + "🚨".repeat(10));
 
-                // حفظ التنبيه
+                // Save alert
                 dataStorage.addAlert(alert);
 
-                // تحديث لوحة التحكم
+                // Update dashboard
                 dashboardService.updateAlert(alert);
 
-                // إشعار فوري
+                // Instant notification
                 sendNotification(alert);
             }
 
             @Override
             public void onError(Throwable t) {
-                System.err.println("❌ خطأ في اشتراك التنبيهات: " + t.getMessage());
-                System.out.println("🔄 إعادة المحاولة خلال 10 ثواني...");
+                System.err.println("❌ Error in alerts subscription: " + t.getMessage());
+                System.out.println("🔄 Retrying in 10 seconds...");
 
                 if (isRunning.get()) {
                     try {
@@ -143,9 +143,9 @@ public class WeatherClient {
 
             @Override
             public void onCompleted() {
-                System.out.println("🔚 انتهى تدفق التنبيهات من الخادم");
+                System.out.println("🔚 Alerts stream ended from server");
                 if (isRunning.get()) {
-                    System.out.println("🔄 إعادة الاتصال...");
+                    System.out.println("🔄 Reconnecting...");
                     subscribeToAlerts();
                 }
             }
@@ -153,8 +153,8 @@ public class WeatherClient {
     }
 
     private void sendNotification(AlertMessage alert) {
-        // يمكن إضافة إشعارات نظام هنا
-        System.out.println("🔔 إشعار: تنبيه طقس في " + alert.getCity() + " - " + alert.getMessage());
+        // Can add system notifications here
+        System.out.println("🔔 Notification: Weather alert in " + alert.getCity() + " - " + alert.getMessage());
     }
 
     private void keepAlive() {
@@ -162,27 +162,27 @@ public class WeatherClient {
             while (isRunning.get()) {
                 Thread.sleep(1000);
 
-                // طباعة نبضة حياة كل 30 ثانية
+                // Print heartbeat every 30 seconds
                 if (System.currentTimeMillis() % 30000 < 1000) {
-                    System.out.println("💓 العميل يعمل - في انتظار البيانات...");
-                    System.out.printf("   📊 الإحصائيات المستلمة: %d\n", dataStorage.getStatsCount());
-                    System.out.printf("   🚨 التنبيهات المستلمة: %d\n", dataStorage.getAlertsCount());
+                    System.out.println("💓 Client running - waiting for data...");
+                    System.out.printf("   📊 Statistics received: %d\n", dataStorage.getStatsCount());
+                    System.out.printf("   🚨 Alerts received: %d\n", dataStorage.getAlertsCount());
                 }
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.out.println("⏹️  تم إيقاف العميل");
+            System.out.println("⏹️ Client stopped");
         }
     }
 
     public void shutdown() {
-        System.out.println("🛑 إيقاف عميل الطقس...");
+        System.out.println("🛑 Stopping weather client...");
         isRunning.set(false);
 
         try {
             channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
             dashboardService.stop();
-            System.out.println("✅ تم الإيقاف بنجاح");
+            System.out.println("✅ Stopped successfully");
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             channel.shutdownNow();

@@ -22,7 +22,7 @@ public class DataStorage {
     public synchronized void addStats(WeatherStats stats) {
         weatherStats.add(stats);
 
-        // الحفاظ على الحد الأقصى
+        // Maintain maximum limit
         if (weatherStats.size() > maxStats) {
             weatherStats.remove(0);
         }
@@ -31,7 +31,7 @@ public class DataStorage {
     public synchronized void addAlert(AlertMessage alert) {
         alertMessages.add(alert);
 
-        // الحفاظ على الحد الأقصى
+        // Maintain maximum limit
         if (alertMessages.size() > maxAlerts) {
             alertMessages.remove(0);
         }

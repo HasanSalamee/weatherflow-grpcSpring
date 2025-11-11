@@ -34,7 +34,7 @@ public class DashboardService {
         try {
             server = HttpServer.create(new InetSocketAddress(port), 0);
 
-            // المسارات
+            // Routes
             server.createContext("/", new DashboardHandler());
             server.createContext("/api/stats", new StatsHandler());
             server.createContext("/api/alerts", new AlertsHandler());
@@ -44,13 +44,13 @@ public class DashboardService {
             server.setExecutor(null);
             server.start();
 
-            System.out.println("🌐 لوحة التحكم تعمل على: http://localhost:" + port);
-            System.out.println("   📊 /api/stats - الإحصائيات");
-            System.out.println("   🚨 /api/alerts - التنبيهات");
-            System.out.println("   🔄 /api/latest - آخر البيانات");
+            System.out.println("🌐 Dashboard running at: http://localhost:" + port);
+            System.out.println("   📊 /api/stats - Statistics");
+            System.out.println("   🚨 /api/alerts - Alerts");
+            System.out.println("   🔄 /api/latest - Latest Data");
 
         } catch (IOException e) {
-            System.err.println("❌ فشل في تشغيل خادم الويب: " + e.getMessage());
+            System.err.println("❌ Failed to start web server: " + e.getMessage());
         }
     }
 
@@ -65,11 +65,11 @@ public class DashboardService {
     public void stop() {
         if (server != null) {
             server.stop(0);
-            System.out.println("⏹️  تم إيقاف خادم الويب");
+            System.out.println("⏹️ Web server stopped");
         }
     }
 
-    // معالجات HTTP
+    // HTTP Handlers
     class DashboardHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
@@ -126,11 +126,11 @@ public class DashboardService {
     private String createDashboardHTML() {
         return """
             <!DOCTYPE html>
-            <html lang="ar" dir="rtl">
+            <html lang="en">
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>لوحة مراقبة الطقس</title>
+                <title>Weather Monitoring Dashboard</title>
                 <style>
                     * { margin: 0; padding: 0; box-sizing: border-box; }
                     body { 
@@ -157,22 +157,22 @@ public class DashboardService {
             <body>
                 <div class="container">
                     <header>
-                        <h1>🌤️ لوحة مراقبة الطقس الموزع</h1>
-                        <p>بيانات مباشرة من نظام gRPC متعدد اللغات</p>
+                        <h1>🌤️ Distributed Weather Monitoring Dashboard</h1>
+                        <p>Live data from multi-language gRPC system</p>
                     </header>
                     
                     <div class="dashboard">
                         <div class="card">
-                            <h2>📊 الإحصائيات الحية</h2>
+                            <h2>📊 Live Statistics</h2>
                             <div id="stats-container" class="stats-grid">
-                                <div class="loading">جاري تحميل البيانات...</div>
+                                <div class="loading">Loading data...</div>
                             </div>
                         </div>
                         
                         <div class="card">
-                            <h2>🚨 تنبيهات الطقس</h2>
+                            <h2>🚨 Weather Alerts</h2>
                             <div id="alerts-container">
-                                <div class="loading">جاري تحميل التنبيهات...</div>
+                                <div class="loading">Loading alerts...</div>
                             </div>
                         </div>
                     </div>
@@ -202,26 +202,26 @@ public class DashboardService {
                     function displayStats(stats) {
                         const container = document.getElementById('stats-container');
                         if (stats.length === 0) {
-                            container.innerHTML = '<div class="loading">لا توجد بيانات متاحة</div>';
+                            container.innerHTML = '<div class="loading">No data available</div>';
                             return;
                         }
 
                         const latest = stats[stats.length - 1];
                         container.innerHTML = `
                             <div class="stat-item">
-                                <div>🌡️ متوسط الحرارة</div>
+                                <div>🌡️ Average Temperature</div>
                                 <div style="font-size: 24px; font-weight: bold;">${latest.avgTemp.toFixed(1)}°C</div>
                             </div>
                             <div class="stat-item">
-                                <div>🔥 أقصى حرارة</div>
+                                <div>🔥 Max Temperature</div>
                                 <div style="font-size: 24px; font-weight: bold;">${latest.maxTemp.toFixed(1)}°C</div>
                             </div>
                             <div class="stat-item">
-                                <div>⚠️ إجمالي التنبيهات</div>
+                                <div>⚠️ Total Alerts</div>
                                 <div style="font-size: 24px; font-weight: bold;">${latest.totalAlerts}</div>
                             </div>
                             <div class="stat-item">
-                                <div>📈 عدد القراءات</div>
+                                <div>📈 Readings Count</div>
                                 <div style="font-size: 24px; font-weight: bold;">${stats.length}</div>
                             </div>
                         `;
@@ -230,7 +230,7 @@ public class DashboardService {
                     function displayAlerts(alerts) {
                         const container = document.getElementById('alerts-container');
                         if (alerts.length === 0) {
-                            container.innerHTML = '<div class="alert-item">✅ لا توجد تنبيهات حالية</div>';
+                            container.innerHTML = '<div class="alert-item">✅ No current alerts</div>';
                             return;
                         }
 
@@ -239,18 +239,18 @@ public class DashboardService {
                                 <strong>🏙️ ${alert.city}</strong><br>
                                 🌡️ ${alert.temperature.toFixed(1)}°C<br>
                                 📝 ${alert.message}<br>
-                                <small>🕒 ${new Date(alert.timestamp).toLocaleString('ar-SA')}</small>
+                                <small>🕒 ${new Date(alert.timestamp).toLocaleString()}</small>
                             </div>
                         `).join('');
                     }
 
-                    // تحديث البيانات كل 5 ثواني
+                    // Update data every 5 seconds
                     setInterval(() => {
                         loadStats();
                         loadAlerts();
                     }, 5000);
 
-                    // التحميل الأولي
+                    // Initial load
                     loadStats();
                     loadAlerts();
                 </script>
